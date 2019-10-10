@@ -21,8 +21,13 @@ class ApplicationController < Sinatra::Base
     if params[:username].empty? || params[:password].empty?
       redirect "/failure"
     else
+<<<<<<< HEAD
       user = User.new(:username => params[:username], :password => params[:password])
       user.save
+=======
+      # user = User.new(:username => params[:username], :password => params[:password])
+      # user.save
+>>>>>>> 43d5bf0d4a3cbfd475138f2c3a9595f2672077dd
       redirect "/login"
     end
   end
@@ -42,6 +47,7 @@ class ApplicationController < Sinatra::Base
     if params[:username].empty? || params[:password].empty?
       redirect "/failure"
     else
+<<<<<<< HEAD
       user = User.find_by(:username => params[:username])
       session[:user_id] = user.id
       if self.logged_in?
@@ -49,6 +55,11 @@ class ApplicationController < Sinatra::Base
       else
         redirect "/failure"
       end
+=======
+      binding.pry
+      session[:user_id] = user.id
+      redirect "/account"
+>>>>>>> 43d5bf0d4a3cbfd475138f2c3a9595f2672077dd
     end
   end
 
